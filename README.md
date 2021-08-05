@@ -1,0 +1,2 @@
+# Apex_Legends-auto_recgonize_weapons
+auto_recgonize_weapons FOR Apex_Legends season10
