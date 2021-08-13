@@ -75,6 +75,20 @@ if __name__ == '__main__':
     while True:
         hWnd_apex = win32gui.FindWindow("Respawn001", "Apex Legends")
         if hWnd_apex != 0 and win32gui.IsIconic(hWnd_apex) == 0:
+            # 截取桌面
+            hWnd = win32gui.GetDesktopWindow()
+            # 返回句柄窗口的设备环境，覆盖整个窗口，包括非客户区，标题栏，菜单，边框
+            hWndDC = win32gui.GetWindowDC(hWnd)
+            # 创建设备描述表
+            mfcDC = win32ui.CreateDCFromHandle(hWndDC)
+            # 创建内存设备描述表
+            saveDC = mfcDC.CreateCompatibleDC()
+            # 创建位图对象准备保存图片
+            saveBitMap = win32ui.CreateBitmap()
+            # 为bitmap开辟存储空间
+            saveBitMap.CreateCompatibleBitmap(mfcDC, int(width / win_img_div_width), int(height / win_img_div_height))
+            # 将截图保存到saveBitMap中
+            saveDC.SelectObject(saveBitMap)
             while hWnd_apex != 0 and win32gui.IsIconic(hWnd_apex) == 0:
                 # 保存bitmap到内存设备描述表
                 saveDC.BitBlt((0, 0), (int(width / win_img_div_width), int(height / win_img_div_height)), mfcDC,
