@@ -2,7 +2,6 @@ import cv2 as cv
 import numpy as np
 import os
 
-# from matplotlib import pyplot as plt
 # 列表中所有的6种比较方法
 methods = ['cv.TM_CCOEFF', 'cv.TM_CCOEFF_NORMED', 'cv.TM_CCORR',
            'cv.TM_CCORR_NORMED', 'cv.TM_SQDIFF', 'cv.TM_SQDIFF_NORMED']
@@ -15,7 +14,7 @@ IMAGE_SIZE_WIDTH = 320
 IMAGE_SIZE_HEIGHT = 128
 
 weapon_template_div_width = 0.4
-weapon_template_div_height = 0.4
+weapon_template_div_height = 0.55
 package_template_div_width = 0.13
 package_template_div_height = 0.325
 
@@ -43,13 +42,14 @@ def mean_2d_coordinates(arg):
     return res_coordinate
 
 
-def recognize_image(img, WeaponTemplateWidthDiv = weapon_template_div_width,
-                    WeaponTemplateDivHeight = weapon_template_div_height,
-                    PackageTemplateDivWidth = package_template_div_width,
-                    PackageTemplateDivHeight = package_template_div_height):
+def recognize_image(img, WeaponTemplateWidthDiv=weapon_template_div_width,
+                    WeaponTemplateDivHeight=weapon_template_div_height,
+                    PackageTemplateDivWidth=package_template_div_width,
+                    PackageTemplateDivHeight=package_template_div_height):
     # 防止空图像错误输入
     if img.size == 0:
         return None, 0
+    # cv.imwrite('img.png', img)
     img = cv.cvtColor(img, cv.COLOR_RGB2GRAY)
     height, width = img.shape
     template_image_size_width = int(width * WeaponTemplateWidthDiv)
@@ -102,7 +102,7 @@ def recognize_image(img, WeaponTemplateWidthDiv = weapon_template_div_width,
     if weapon_res == "HWK" or weapon_res == "ZZ":
         img = img[weapon_arg[1]:(weapon_arg[1]+template_image_size_height), weapon_arg[0]:(weapon_arg[0]+template_image_size_width)]
         # img = cv.cvtColor(img, cv.COLOR_GRAY2RGB)
-        # cv.imwrite('img.png', img)
+        cv.imwrite('img.png', img)
         data2_res = []
         for i in os.listdir("./packages/HWK_WL"):
             template = cv.imread('./packages/HWK_WL/%s' % i, 0)
