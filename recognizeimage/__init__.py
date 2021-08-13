@@ -102,7 +102,7 @@ def recognize_image(img, WeaponTemplateWidthDiv=weapon_template_div_width,
     if weapon_res == "HWK" or weapon_res == "ZZ":
         img = img[weapon_arg[1]:(weapon_arg[1]+template_image_size_height), weapon_arg[0]:(weapon_arg[0]+template_image_size_width)]
         # img = cv.cvtColor(img, cv.COLOR_GRAY2RGB)
-        cv.imwrite('img.png', img)
+        # cv.imwrite('img.png', img)
         data2_res = []
         for i in os.listdir("./packages/HWK_WL"):
             template = cv.imread('./packages/HWK_WL/%s' % i, 0)
@@ -127,14 +127,14 @@ def recognize_image(img, WeaponTemplateWidthDiv=weapon_template_div_width,
         # print(data2_res)
         data2_res = data2_res[data2_res > 0.5]
         data2_res = data2_res.mean()
-        print(data2_res)
+        # print(data2_res)
         if method2 in [cv.TM_SQDIFF, cv.TM_SQDIFF_NORMED]:
-            if data2_res < 0.3:
+            if data2_res < 0.25:
                 turbo_res = 0
             else:
                 turbo_res = 1
         else:
-            if 0.7 > data2_res:
+            if 0.75 > data2_res:
                 turbo_res = 1
             else:
                 turbo_res = 0
