@@ -103,7 +103,7 @@ if __name__ == '__main__':
                                                             WeaponTemplateDivHeight=weapon_template_div_height,
                                                             PackageTemplateDivWidth=package_template_div_width,
                                                             PackageTemplateDivHeight=package_template_div_height)
-                print("weapon_index=\"%s\" \n" % weapon_index + "turbo_index=%d" % turbo_index)
+                # print("weapon_index=\"%s\" \n" % weapon_index + "turbo_index=%d" % turbo_index)
                 file = open(file_path, "w")
                 file.write("weapon_index=\"%s\" \n" % weapon_index + "turbo_index=%d" % turbo_index)
                 file.close()
