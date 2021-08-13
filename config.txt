@@ -1,0 +1,9 @@
+Manual = 1
+width_ = 2560
+height = 1440
+win_img_div_width = 4
+win_img_div_height = 8
+weapon_template_div_width = 0.4
+weapon_template_div_height = 0.55
+package_template_div_width = 0.13
+package_template_div_height = 0.446
