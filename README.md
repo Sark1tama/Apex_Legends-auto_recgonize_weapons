@@ -1,2 +1,39 @@
 # Apex_Legends-auto_recgonize_weapons
-auto_recgonize_weapons FOR Apex_Legends season10
+一个Apex Legends压枪罗技宏配合使用的自动识别武器python项目
+## 安装
+
+* 从[Apex_Legends-Logit-G-series-Lua-script](https://github.com/zz824865454/Apex_Legends-Logit-G-series-Lua-script)下载Ultimate.lua后从GHUB为Apex Legends新建指令码后导入脚本。
+* 从[Apex_Legends-auto_recgonize_weapons](https://github.com/zz824865454/Apex_Legends-auto_recgonize_weapons/releases)下载并解压。
+
+## 使用
+
+* 编辑GHUB内Apex Legends导入后的指令码，将
+
+```
+    version = x
+```
+* 改为
+
+```
+    version = 2
+```
+
+* 若Windows显示缩放为100%游戏分辨率与桌面相同，且分辨率为1280\*1080或2560\*1080则可直接打开AutoRecoginze.exe，任务管理器出现进程后进入游戏即可。其他分辨率写了但未测试，无法使用就打开config.txt文件手动设置相关参数。
+* 游戏内灵敏度设置2.5。
+
+## 说明
+* 下为设置宏开启模式，1为按下一次开关键后左键开火即有压枪，2为按住右键左键开火即有压枪，3为按下开关键且按住右键，4为按下开关键或者按住右键。
+
+```
+    KaiGuan="capslock" --KaiGuanJian
+    offset_pattern = 3     --1.KaiGuan    2.YouJian   3.KaiGuan AND YouJian   4.KaiGuan OR YouJian
+```
+
+* 下为设置自动模式下的键盘停止压枪按键，LSKG=1为使能按下lalt可以在错误时停止压枪，比如2，4模式下往往舔包点击左键也有压枪效果。
+
+```
+    keybb="lalt"		
+    LSKG = 1
+```
+* 无法使用就将AutoRecoginze.exe及GHUB都以管理员运行。
+
